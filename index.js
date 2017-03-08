@@ -9,23 +9,19 @@ for (var i = 0; i < process.argv.length; i++) {
 }
 
 var engine = new RuleEngine(ontologyDirectory),
-	purposes, dimensions;
+	purposes = [], dimensions, situations, possibilities;
 
-engine.clear()	
-	.then(function() {
-		engine.load("purposes.ttl")
-			.then(function(status) {
-				return engine.getPurposes();
-			}).then(function(p) {
-				purposes = p;
-				return engine.load("dimensions_instances.ttl")
-					.then(function(status) {
-						return engine.getDimensions();
-					});
-			}).then(function(d) {
-				dimensions = d;
-				return engine.generateSituations(dimensions, purposes);
-			}).then(function(s) {
-				console.log(JSON.stringify(s));
-			});
-	});	
+engine.getPurposes()
+	.then(function(p) {
+		purposes = p;
+		return engine.getDimensions();
+	}).then(function(d) {
+		dimensions = d;
+		return engine.generateSituations(dimensions, purposes);
+	}).then(function(s) {
+		situations = s;
+		return engine.generateAdaptationPossibilities();
+	}).then(function(p) {
+		possibilities = p;
+		console.log(p);
+	})
