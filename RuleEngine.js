@@ -135,7 +135,7 @@ RuleEngine.prototype.generateSituations = function(dimensions, purposes) {
 };
 
 RuleEngine.prototype.generateAdaptationPossibilities = function() {
-	return	executeQuery(
+	return executeQuery(
 			'CONSTRUCT { ?adapted ?possibilityPred ?candidate } ' +
 			'WHERE { ' +
 			'	?purpose asawoo-ctx:purposePredicate ?possibilityPred . ' +
@@ -146,8 +146,30 @@ RuleEngine.prototype.generateAdaptationPossibilities = function() {
 			'}', 'application/n-triples');
 };
 
-RuleEngine.prototype.insertData = function(data) {
+RuleEngine.prototype.calculateScores = function() {
+	return executeQuery(
+		`SELECT DISTINCT ?adapted ?purposePred ?candidate
+		  (SUM(?score) AS ?candidateScore)
+		  (GROUP_CONCAT(?contextualInstance) AS ?instances) {
+			?adapted ?purposePred ?candidate .
+			?purpose asawoo-ctx:purposePredicate ?purposePred .	
+		    ?contextualSituation asawoo-ctx:containsInstance ?contextualInstance .	
+			
+			?scoringFunction asawoo-ctx:scores ?BN .
+			?scoringFunction asawoo-ctx:applicableTo ?purpose .    
+			?BN asawoo-ctx:withInstance ?contextualInstance .
+			?BN asawoo-ctx:forCandidate ?candidate .
+			?BN rdf:value ?score .	
+		 
+		} GROUP BY ?adapted ?purposePred ?candidate ?contextualSituation`);
+}
 
+RuleEngine.prototype.generateScoredAdaptationRules = function() {
+
+}
+
+RuleEngine.prototype.insertData = function(data) {
+	return executeQuery('INSERT DATA { ' + data + ' }', 'text/boolean');
 };
 
 module.exports = RuleEngine;

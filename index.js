@@ -23,5 +23,9 @@ engine.getPurposes()
 		return engine.generateAdaptationPossibilities();
 	}).then(function(p) {
 		possibilities = p;
-		console.log(p);
+		return engine.insertData(situations + possibilities);
+	}).then(function(status) {
+		return engine.calculateScores();
+	}).then(function(scores) {
+		console.log(scores.results.bindings);
 	})
