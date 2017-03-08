@@ -1,0 +1,22 @@
+{
+  "name": "toit-proto",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spadon/toit-proto.git"
+  },
+  "author": "Mehdi Terdjimi <mehdi.terdjimi@liris.cnrs.fr> (http://liris.cnrs.fr/~mterdjim)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Spadon/toit-proto/issues"
+  },
+  "homepage": "https://github.com/Spadon/toit-proto#readme",
+  "dependencies": {
+    "rdfstore": "^0.9.17"
+  }
+}
