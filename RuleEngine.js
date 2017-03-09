@@ -191,6 +191,46 @@ RuleEngine.prototype.generateScoredAdaptationRules = function(scoreBindings) {
 	return adaptationRules;
 }
 
+RuleEngine.prototype.generateScoredAdaptationRulesStardog = function(scoreBindings) {
+	var adaptationRules = `@prefix rule: <tag:stardog:api:rule:> .`;
+		
+
+	for (var i = 0; i < scoreBindings.length; i++) {				
+		var b = scoreBindings[i],
+			cause = `IF { `,
+			consequence = `THEN { `,
+		 	instances = b.instances.value.split(' ');
+
+		for (var j = 0; j < instances.length; j++) {
+			cause = `${cause}
+						<${instances[j]}> <${rdftype}> <${ctxInstance}> .
+					`;
+		}			 	
+
+		cause = `${cause}
+				 }
+				`;
+
+		consequence = `${consequence}
+						[
+							<${rdfsub}> <${b.adapted.value}> ; 
+							<${rdfpred}> <${b.purposePred.value}> ; 
+							<${rdfobj}> <${b.candidate.value}> ; 
+							<${rdfval}> "${b.candidateScore.value}"
+						] . 
+					}
+					`,		
+		adaptationRules = `${adaptationRules}
+
+				[] a rule:SPARQLRule ;
+  				rule:content """
+  				${cause}
+  				${consequence}
+  				""" . `;
+	}
+	return adaptationRules;
+}
+
 RuleEngine.prototype.insertData = function(data) {
 	return executeQuery(`INSERT DATA { ${data} }`, 'text/boolean');
 };

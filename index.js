@@ -28,9 +28,11 @@ engine.getPurposes()
 	}).then(function(status) {
 		return engine.calculateScores();
 	}).then(function(scores) {
-		var rules = engine.generateScoredAdaptationRules(scores.results.bindings);
+		var rules = engine.generateScoredAdaptationRules(scores.results.bindings),
+			rules_stardog = engine.generateScoredAdaptationRulesStardog(scores.results.bindings);
 		try {
-			fs.writeFileSync("rules.json", JSON.stringify(rules, null, 4));
+			fs.writeFileSync(ontologyDirectory+"rules.json", JSON.stringify(rules, null, 4));
+			fs.writeFileSync(ontologyDirectory+"rules-stardog.ttl", rules_stardog);
 			console.log(`Written ${rules.length} rules.`);
 		} catch(e) {
 			console.error(e);
