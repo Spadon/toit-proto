@@ -1,12 +1,19 @@
 var rdfstore = require('rdfstore'),
 	request = require('request'),
 	fs = require('fs'),
+
 	Prefixes = 	"PREFIX asawoo-vocab: <http://liris.cnrs.fr/asawoo/vocab#> \n" +
 				"PREFIX asawoo-ctx: <http://liris.cnrs.fr/asawoo/vocab/context/> \n " +
 				"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n" +
 				"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n" +
 				"PREFIX owl: <http://www.w3.org/2002/07/owl#> \n",
-	Triplestore;
+
+	rdftype = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type',
+	rdfsub = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#subject',
+	rdfpred = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate',
+	rdfobj = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#object',
+	rdfval = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#value',
+	ctxInstance = 'http://liris.cnrs.fr/asawoo/vocab/context/contextualInstance';
 
 var executeQuery = function(query) {			
 	var deferred = Promise.defer(),
@@ -136,14 +143,14 @@ RuleEngine.prototype.generateSituations = function(dimensions, purposes) {
 
 RuleEngine.prototype.generateAdaptationPossibilities = function() {
 	return executeQuery(
-			'CONSTRUCT { ?adapted ?possibilityPred ?candidate } ' +
-			'WHERE { ' +
-			'	?purpose asawoo-ctx:purposePredicate ?possibilityPred . ' +
-			'	?possibilityPred rdfs:domain ?adaptedClass . ' +
-			'	?possibilityPred rdfs:range ?candidateClass . ' +
-			'	?adapted a ?adaptedClass . ' +
-			'	?candidate a ?candidateClass . ' +
-			'}', 'application/n-triples');
+			`CONSTRUCT { ?adapted ?possibilityPred ?candidate }
+			 WHERE {
+			 	?purpose asawoo-ctx:purposePredicate ?possibilityPred .			 	
+			 	?possibilityPred rdfs:domain ?adaptedClass . 			
+			 	?possibilityPred rdfs:range ?candidateClass .  	
+				?adapted a ?adaptedClass . 
+				?candidate a ?candidateClass .
+			}`, 'application/n-triples');
 };
 
 RuleEngine.prototype.calculateScores = function() {
@@ -159,17 +166,33 @@ RuleEngine.prototype.calculateScores = function() {
 			?scoringFunction asawoo-ctx:applicableTo ?purpose .    
 			?BN asawoo-ctx:withInstance ?contextualInstance .
 			?BN asawoo-ctx:forCandidate ?candidate .
+			?BN asawoo-ctx:forAdapted ?adapted .
 			?BN rdf:value ?score .	
 		 
 		} GROUP BY ?adapted ?purposePred ?candidate ?contextualSituation`);
 }
 
-RuleEngine.prototype.generateScoredAdaptationRules = function() {
+RuleEngine.prototype.generateScoredAdaptationRules = function(scoreBindings) {
+	var adaptationRules = [];
+	for (var i = 0; i < scoreBindings.length; i++) {		
+		var b = scoreBindings[i],
+		 	instances = b.instances.value.split(' ');
 
+		for (var j = 0; j < instances.length; j++) {
+			instances[j] = `(${instances[j]} ${rdftype} ${ctxInstance})`;
+		}
+
+		var cause = instances.join(' ^ '),			 	
+			consequence = `(__bnode__ ${rdfsub} ${b.adapted.value}) ^ (__bnode__ ${rdfpred} ${b.purposePred.value}) ^ (__bnode__ ${rdfobj} ${b.candidate.value}) ^ (__bnode__ ${rdfval} "${b.candidateScore.value}")`,
+			rule = `${cause} -> ${consequence}`;
+
+		adaptationRules.push(rule);
+	}
+	return adaptationRules;
 }
 
 RuleEngine.prototype.insertData = function(data) {
-	return executeQuery('INSERT DATA { ' + data + ' }', 'text/boolean');
+	return executeQuery(`INSERT DATA { ${data} }`, 'text/boolean');
 };
 
 module.exports = RuleEngine;

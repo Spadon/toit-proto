@@ -1,5 +1,6 @@
 var RuleEngine = require('./RuleEngine'),
-	ontologyDirectory;
+	ontologyDirectory,
+	fs = require('fs');
 
 for (var i = 0; i < process.argv.length; i++) {
 	var argv = process.argv;
@@ -27,5 +28,11 @@ engine.getPurposes()
 	}).then(function(status) {
 		return engine.calculateScores();
 	}).then(function(scores) {
-		console.log(scores.results.bindings);
-	})
+		var rules = engine.generateScoredAdaptationRules(scores.results.bindings);
+		try {
+			fs.writeFileSync("rules.json", JSON.stringify(rules, null, 4));
+			console.log(`Written ${rules.length} rules.`);
+		} catch(e) {
+			console.error(e);
+		}
+	});
