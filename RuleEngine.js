@@ -13,7 +13,7 @@ var rdfstore = require('rdfstore'),
 	rdfpred = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate',
 	rdfobj = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#object',
 	rdfval = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#value',
-	ctxInstance = 'http://liris.cnrs.fr/asawoo/vocab/context/contextualInstance';
+	ctxInstance = 'http://liris.cnrs.fr/asawoo/vocab/context/ContextualInstance';
 
 var executeQuery = function(query) {			
 	var deferred = Promise.defer(),
@@ -172,7 +172,9 @@ RuleEngine.prototype.calculateScores = function() {
 		} GROUP BY ?adapted ?purposePred ?candidate ?contextualSituation`);
 }
 
-RuleEngine.prototype.generateScoredAdaptationRules = function(scoreBindings) {
+
+
+/*RuleEngine.prototype.generateScoredAdaptationRules = function(scoreBindings) {
 	var adaptationRules = [];
 	for (var i = 0; i < scoreBindings.length; i++) {		
 		var b = scoreBindings[i],
@@ -189,16 +191,33 @@ RuleEngine.prototype.generateScoredAdaptationRules = function(scoreBindings) {
 		adaptationRules.push(rule);
 	}
 	return adaptationRules;
+}*/
+
+RuleEngine.prototype.generateScoredAdaptationRules = function(scoreBindings) {
+	var rules = {};		
+
+	for (var i = 0; i < scoreBindings.length; i++) {				
+		var b = scoreBindings[i],			
+		 	causeIndex = b.instances.value;
+		if (!rules[causeIndex]) {
+			rules[causeIndex] = [];
+		} 
+		rules[causeIndex].push(b);
+		
+	}
+
+console.log(Object.keys(rules).length);
+	return rules;
 }
 
-RuleEngine.prototype.generateScoredAdaptationRulesStardog = function(scoreBindings) {
+/*RuleEngine.prototype.asHyLARRules = function(rules) {
 	var adaptationRules = `@prefix rule: <tag:stardog:api:rule:> .`;
 		
 
 	for (var i = 0; i < scoreBindings.length; i++) {				
 		var b = scoreBindings[i],
 			cause = `IF { `,
-			consequence = `THEN { `,
+			consequences = `THEN { `,
 		 	instances = b.instances.value.split(' ');
 
 		for (var j = 0; j < instances.length; j++) {
@@ -212,12 +231,11 @@ RuleEngine.prototype.generateScoredAdaptationRulesStardog = function(scoreBindin
 				`;
 
 		consequence = `${consequence}
-						[
-							<${rdfsub}> <${b.adapted.value}> ; 
+						[]	<${rdfsub}> <${b.adapted.value}> ; 
 							<${rdfpred}> <${b.purposePred.value}> ; 
 							<${rdfobj}> <${b.candidate.value}> ; 
 							<${rdfval}> "${b.candidateScore.value}"
-						] . 
+						. 
 					}
 					`,		
 		adaptationRules = `${adaptationRules}
@@ -229,7 +247,7 @@ RuleEngine.prototype.generateScoredAdaptationRulesStardog = function(scoreBindin
   				""" . `;
 	}
 	return adaptationRules;
-}
+};*/
 
 RuleEngine.prototype.insertData = function(data) {
 	return executeQuery(`INSERT DATA { ${data} }`, 'text/boolean');
