@@ -1,0 +1,118 @@
+<http://liris.cnrs.fr/asawoo/vocab/context/NoWind> <http://liris.cnrs.fr/asawoo/vocab/context/Dry> <http://liris.cnrs.fr/asawoo/vocab/context/Hot>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/NoWind> <http://liris.cnrs.fr/asawoo/vocab/context/Dry> <http://liris.cnrs.fr/asawoo/vocab/context/Warm>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/NoWind> <http://liris.cnrs.fr/asawoo/vocab/context/Dry> <http://liris.cnrs.fr/asawoo/vocab/context/Cold>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/NoWind> <http://liris.cnrs.fr/asawoo/vocab/context/Rainy> <http://liris.cnrs.fr/asawoo/vocab/context/Hot>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/NoWind> <http://liris.cnrs.fr/asawoo/vocab/context/Rainy> <http://liris.cnrs.fr/asawoo/vocab/context/Warm>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/NoWind> <http://liris.cnrs.fr/asawoo/vocab/context/Rainy> <http://liris.cnrs.fr/asawoo/vocab/context/Cold>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/NoWind> <http://liris.cnrs.fr/asawoo/vocab/context/Flooded> <http://liris.cnrs.fr/asawoo/vocab/context/Hot>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/NoWind> <http://liris.cnrs.fr/asawoo/vocab/context/Flooded> <http://liris.cnrs.fr/asawoo/vocab/context/Warm>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/NoWind> <http://liris.cnrs.fr/asawoo/vocab/context/Flooded> <http://liris.cnrs.fr/asawoo/vocab/context/Cold>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/Breeze> <http://liris.cnrs.fr/asawoo/vocab/context/Dry> <http://liris.cnrs.fr/asawoo/vocab/context/Hot>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/Breeze> <http://liris.cnrs.fr/asawoo/vocab/context/Dry> <http://liris.cnrs.fr/asawoo/vocab/context/Warm>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/Breeze> <http://liris.cnrs.fr/asawoo/vocab/context/Dry> <http://liris.cnrs.fr/asawoo/vocab/context/Cold>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/Breeze> <http://liris.cnrs.fr/asawoo/vocab/context/Rainy> <http://liris.cnrs.fr/asawoo/vocab/context/Hot>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/Breeze> <http://liris.cnrs.fr/asawoo/vocab/context/Rainy> <http://liris.cnrs.fr/asawoo/vocab/context/Warm>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/Breeze> <http://liris.cnrs.fr/asawoo/vocab/context/Rainy> <http://liris.cnrs.fr/asawoo/vocab/context/Cold>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/Breeze> <http://liris.cnrs.fr/asawoo/vocab/context/Flooded> <http://liris.cnrs.fr/asawoo/vocab/context/Hot>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/Breeze> <http://liris.cnrs.fr/asawoo/vocab/context/Flooded> <http://liris.cnrs.fr/asawoo/vocab/context/Warm>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/Breeze> <http://liris.cnrs.fr/asawoo/vocab/context/Flooded> <http://liris.cnrs.fr/asawoo/vocab/context/Cold>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/StrongWind> <http://liris.cnrs.fr/asawoo/vocab/context/Dry> <http://liris.cnrs.fr/asawoo/vocab/context/Hot>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/StrongWind> <http://liris.cnrs.fr/asawoo/vocab/context/Dry> <http://liris.cnrs.fr/asawoo/vocab/context/Warm>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/StrongWind> <http://liris.cnrs.fr/asawoo/vocab/context/Dry> <http://liris.cnrs.fr/asawoo/vocab/context/Cold>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/StrongWind> <http://liris.cnrs.fr/asawoo/vocab/context/Rainy> <http://liris.cnrs.fr/asawoo/vocab/context/Hot>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/StrongWind> <http://liris.cnrs.fr/asawoo/vocab/context/Rainy> <http://liris.cnrs.fr/asawoo/vocab/context/Warm>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/StrongWind> <http://liris.cnrs.fr/asawoo/vocab/context/Rainy> <http://liris.cnrs.fr/asawoo/vocab/context/Cold>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/StrongWind> <http://liris.cnrs.fr/asawoo/vocab/context/Flooded> <http://liris.cnrs.fr/asawoo/vocab/context/Hot>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/StrongWind> <http://liris.cnrs.fr/asawoo/vocab/context/Flooded> <http://liris.cnrs.fr/asawoo/vocab/context/Warm>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/StrongWind> <http://liris.cnrs.fr/asawoo/vocab/context/Flooded> <http://liris.cnrs.fr/asawoo/vocab/context/Cold>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryImp> <http://liris.cnrs.fr/asawoo/vocab/context/HighCPUPict> <http://liris.cnrs.fr/asawoo/vocab/context/HD>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryImp> <http://liris.cnrs.fr/asawoo/vocab/context/HighCPUPict> <http://liris.cnrs.fr/asawoo/vocab/context/AvgQuality>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryImp> <http://liris.cnrs.fr/asawoo/vocab/context/HighCPUPict> <http://liris.cnrs.fr/asawoo/vocab/context/LowQuality>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryImp> <http://liris.cnrs.fr/asawoo/vocab/context/LowCPUPict> <http://liris.cnrs.fr/asawoo/vocab/context/HD>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryImp> <http://liris.cnrs.fr/asawoo/vocab/context/LowCPUPict> <http://liris.cnrs.fr/asawoo/vocab/context/AvgQuality>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryImp> <http://liris.cnrs.fr/asawoo/vocab/context/LowCPUPict> <http://liris.cnrs.fr/asawoo/vocab/context/LowQuality>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryImp> <http://liris.cnrs.fr/asawoo/vocab/context/HighCPUPict> <http://liris.cnrs.fr/asawoo/vocab/context/HD>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryImp> <http://liris.cnrs.fr/asawoo/vocab/context/HighCPUPict> <http://liris.cnrs.fr/asawoo/vocab/context/AvgQuality>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryImp> <http://liris.cnrs.fr/asawoo/vocab/context/HighCPUPict> <http://liris.cnrs.fr/asawoo/vocab/context/LowQuality>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryImp> <http://liris.cnrs.fr/asawoo/vocab/context/LowCPUPict> <http://liris.cnrs.fr/asawoo/vocab/context/HD>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryImp> <http://liris.cnrs.fr/asawoo/vocab/context/LowCPUPict> <http://liris.cnrs.fr/asawoo/vocab/context/AvgQuality>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryImp> <http://liris.cnrs.fr/asawoo/vocab/context/LowCPUPict> <http://liris.cnrs.fr/asawoo/vocab/context/LowQuality>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/FarFromField> <http://liris.cnrs.fr/asawoo/vocab/context/HighBatteryComp> <http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryComp>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/FarFromField> <http://liris.cnrs.fr/asawoo/vocab/context/HighBatteryComp> <http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryComp>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/FarFromField> <http://liris.cnrs.fr/asawoo/vocab/context/LowBatteryComp> <http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryComp>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/FarFromField> <http://liris.cnrs.fr/asawoo/vocab/context/LowBatteryComp> <http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryComp>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/CloseToField> <http://liris.cnrs.fr/asawoo/vocab/context/HighBatteryComp> <http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryComp>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/CloseToField> <http://liris.cnrs.fr/asawoo/vocab/context/HighBatteryComp> <http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryComp>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/CloseToField> <http://liris.cnrs.fr/asawoo/vocab/context/LowBatteryComp> <http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryComp>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/CloseToField> <http://liris.cnrs.fr/asawoo/vocab/context/LowBatteryComp> <http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryComp>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/Far> <http://liris.cnrs.fr/asawoo/vocab/context/HighBatteryPrtcl>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/Far> <http://liris.cnrs.fr/asawoo/vocab/context/LowBatteryPrtcl>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/Close> <http://liris.cnrs.fr/asawoo/vocab/context/HighBatteryPrtcl>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/Close> <http://liris.cnrs.fr/asawoo/vocab/context/LowBatteryPrtcl>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/HighBatteryCode> <http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryCode> <http://liris.cnrs.fr/asawoo/vocab/context/HighCPUCode>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/HighBatteryCode> <http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryCode> <http://liris.cnrs.fr/asawoo/vocab/context/LowCPUCode>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/HighBatteryCode> <http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryCode> <http://liris.cnrs.fr/asawoo/vocab/context/HighCPUCode>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/HighBatteryCode> <http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryCode> <http://liris.cnrs.fr/asawoo/vocab/context/LowCPUCode>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/LowBatteryCode> <http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryCode> <http://liris.cnrs.fr/asawoo/vocab/context/HighCPUCode>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/LowBatteryCode> <http://liris.cnrs.fr/asawoo/vocab/context/HighMemoryCode> <http://liris.cnrs.fr/asawoo/vocab/context/LowCPUCode>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/LowBatteryCode> <http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryCode> <http://liris.cnrs.fr/asawoo/vocab/context/HighCPUCode>  . 
+
+<http://liris.cnrs.fr/asawoo/vocab/context/LowBatteryCode> <http://liris.cnrs.fr/asawoo/vocab/context/LowMemoryCode> <http://liris.cnrs.fr/asawoo/vocab/context/LowCPUCode>  . 
+

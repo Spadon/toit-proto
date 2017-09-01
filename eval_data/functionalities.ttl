@@ -1,0 +1,39 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix asawoo-vocab: <http://liris.cnrs.fr/asawoo/vocab#> .
+
+# Object Properties
+
+asawoo-vocab:isComposedOf rdf:type owl:ObjectProperty ,
+                                   owl:TransitiveProperty ;
+                          
+                          rdfs:domain owl:Class ;
+                          
+                          rdfs:range owl:Class .
+
+asawoo-vocab:isImplementedBy rdf:type owl:ObjectProperty ;
+                             
+                             rdfs:domain owl:Class ;
+                             
+                             rdfs:range owl:Class .
+
+# Functionalities
+
+asawoo-vocab:Functionality rdf:type owl:Class .
+
+asawoo-vocab:ManageWatering rdf:type asawoo-vocab:Functionality .
+asawoo-vocab:DetectWateringNeeds rdf:type asawoo-vocab:Functionality .
+asawoo-vocab:SprayWater rdf:type asawoo-vocab:Functionality .
+asawoo-vocab:TakeHdPicture rdf:type asawoo-vocab:Functionality .
+asawoo-vocab:ProcessPicture rdf:type asawoo-vocab:Functionality .
+asawoo-vocab:TransferPicture rdf:type asawoo-vocab:Functionality .
+
+# Capabilities
+
+asawoo-vocab:Capability rdf:type owl:Class .
+
+asawoo-vocab:TakePicture rdf:type asawoo-vocab:Capability .
+

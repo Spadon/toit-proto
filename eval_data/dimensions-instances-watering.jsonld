@@ -1,0 +1,382 @@
+{
+  "@context": {
+    "asawoo-ctx": "http://liris.cnrs.fr/asawoo/vocab/context/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "asawoo-ctx:LowMemoryCode",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Code"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Memory"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:LowBatteryCode",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Code"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Battery"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:LowQuality",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Imp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Resolution"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:instanceForPurpose",
+      "rdfs:domain": {
+        "@id": "asawoo-ctx:ContextualInstance"
+      },
+      "rdfs:range": {
+        "@id": "asawoo-ctx:AdaptationPurpose"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:HighBatteryCode",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Code"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Battery"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Close",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Prtcl"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Location"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Warm",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Exp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Temperature"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:LowMemoryComp",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Comp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Memory"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:HighMemoryComp",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Comp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Memory"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Hot",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Exp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Temperature"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Resolution",
+      "@type": "asawoo-ctx:ContextualDimension"
+    },
+    {
+      "@id": "asawoo-ctx:AvgQuality",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Imp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Resolution"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Rainy",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Exp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Dryness"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Dryness",
+      "@type": "asawoo-ctx:ContextualDimension"
+    },
+    {
+      "@id": "asawoo-ctx:Memory",
+      "@type": "asawoo-ctx:ContextualDimension"
+    },
+    {
+      "@id": "asawoo-ctx:instanceFromDimension",
+      "rdfs:domain": {
+        "@id": "asawoo-ctx:ContextualInstance"
+      },
+      "rdfs:range": {
+        "@id": "asawoo-ctx:ContextualDimension"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:HD",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Imp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Resolution"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Wind",
+      "@type": "asawoo-ctx:ContextualDimension"
+    },
+    {
+      "@id": "asawoo-ctx:HighCPUCode",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Code"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:CPU"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:NoWind",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Exp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Wind"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:HighCPUPict",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Imp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:CPU"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Battery",
+      "@type": "asawoo-ctx:ContextualDimension"
+    },
+    {
+      "@id": "asawoo-ctx:LowCPUCode",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Code"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:CPU"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:LowBatteryComp",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Comp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Battery"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:LowBatteryPrtcl",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Prtcl"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Battery"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:LowCPUPict",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Imp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:CPU"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Far",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Prtcl"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Location"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:FarFromField",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Comp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Location"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:LowMemoryPict",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Imp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Memory"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Location",
+      "@type": "asawoo-ctx:ContextualDimension"
+    },
+    {
+      "@id": "asawoo-ctx:CPU",
+      "@type": "asawoo-ctx:ContextualDimension"
+    },
+    {
+      "@id": "asawoo-ctx:HighBatteryComp",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Comp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Battery"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:StrongWind",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Exp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Wind"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:HighMemoryCode",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Code"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Memory"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Dry",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Exp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Dryness"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Flooded",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Exp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Dryness"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:HighMemoryPict",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Imp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Memory"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Cold",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Exp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Temperature"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Breeze",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Exp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Wind"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:HighBatteryPrtcl",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Prtcl"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Battery"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Temperature",
+      "@type": "asawoo-ctx:ContextualDimension"
+    },
+    {
+      "@id": "asawoo-ctx:CloseToField",
+      "@type": "asawoo-ctx:ContextualInstance",
+      "asawoo-ctx:instanceForPurpose": {
+        "@id": "asawoo-ctx:Comp"
+      },
+      "asawoo-ctx:instanceFromDimension": {
+        "@id": "asawoo-ctx:Location"
+      }
+    }
+  ]
+}
+

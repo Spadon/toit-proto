@@ -1,0 +1,396 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix asawoo-ctx: <http://liris.cnrs.fr/asawoo/vocab/context/>.
+@prefix asawoo-vocab: <http://liris.cnrs.fr/asawoo/vocab#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+# Prtcl Scoring
+## Battery
+
+asawoo-ctx:F1 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F1 asawoo-ctx:applicableTo asawoo-ctx:Prtcl .
+asawoo-ctx:F1 asawoo-ctx:forDimension asawoo-ctx:Battery .
+
+asawoo-ctx:F1 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Bluetooth ;
+	asawoo-ctx:forAdapted asawoo-vocab:TransferPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:HighBatteryPrtcl ;
+	rdf:value "0.5"^^xsd:double
+] .
+
+asawoo-ctx:F1 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Wifi ;
+	asawoo-ctx:forAdapted asawoo-vocab:TransferPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:HighBatteryPrtcl ;
+	rdf:value "0.5"^^xsd:double 
+] . 
+
+asawoo-ctx:F1 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Bluetooth ;
+	asawoo-ctx:forAdapted asawoo-vocab:TransferPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:LowBatteryPrtcl ;
+	rdf:value "0.1"^^xsd:double 
+] . 
+
+asawoo-ctx:F1 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Wifi ;
+	asawoo-ctx:forAdapted asawoo-vocab:TransferPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:LowBatteryPrtcl ;
+	rdf:value "0.3"^^xsd:double 
+] . 
+
+## Location
+
+asawoo-ctx:F2 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F2 asawoo-ctx:applicableTo asawoo-ctx:Prtcl .
+asawoo-ctx:F2 asawoo-ctx:forDimension asawoo-ctx:Location .
+
+asawoo-ctx:F2 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Bluetooth ;
+	asawoo-ctx:forAdapted asawoo-vocab:TransferPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:Close ;
+	rdf:value "0.5"^^xsd:double 
+] . 
+
+asawoo-ctx:F2 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Wifi ;
+	asawoo-ctx:forAdapted asawoo-vocab:TransferPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:Close ;
+	rdf:value "0.5"^^xsd:double 
+] . 
+
+asawoo-ctx:F2 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Bluetooth ;
+	asawoo-ctx:forAdapted asawoo-vocab:TransferPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:Far ;
+	rdf:value "0"^^xsd:double 
+] . 
+
+asawoo-ctx:F2 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Wifi ;
+	asawoo-ctx:forAdapted asawoo-vocab:TransferPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:Far ;
+	rdf:value "0.3"^^xsd:double 
+] . 
+
+# Exposition Scoring
+
+## Wind
+
+asawoo-ctx:F3 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F3 asawoo-ctx:applicableTo asawoo-ctx:Exp .
+asawoo-ctx:F3 asawoo-ctx:forDimension asawoo-ctx:Wind .
+
+asawoo-ctx:F3 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-ctx:Exposable ;
+	asawoo-ctx:forAdapted asawoo-vocab:SprayWater ;
+	asawoo-ctx:withInstance asawoo-ctx:StrongWind ;
+	rdf:value "0"^^xsd:double 
+] . 
+
+asawoo-ctx:F3 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-ctx:Exposable ;
+	asawoo-ctx:forAdapted asawoo-vocab:SprayWater ;
+	asawoo-ctx:withInstance asawoo-ctx:Breeze ;
+	rdf:value "0.3"^^xsd:double 
+] . 
+
+asawoo-ctx:F3 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-ctx:Exposable ;
+	asawoo-ctx:forAdapted asawoo-vocab:SprayWater ;
+	asawoo-ctx:withInstance asawoo-ctx:NoWind ;
+	rdf:value "0.3"^^xsd:double 
+] . 
+
+## Dryness
+
+asawoo-ctx:F4 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F4 asawoo-ctx:applicableTo asawoo-ctx:Exp .
+asawoo-ctx:F4 asawoo-ctx:forDimension asawoo-ctx:Dryness .
+
+asawoo-ctx:F4 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-ctx:Exposable ;
+	asawoo-ctx:forAdapted asawoo-vocab:SprayWater ;
+	asawoo-ctx:withInstance asawoo-ctx:Dry ;
+	rdf:value "0.3"^^xsd:double 
+] . 
+
+asawoo-ctx:F4 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-ctx:Exposable ;
+	asawoo-ctx:forAdapted asawoo-vocab:SprayWater ;
+	asawoo-ctx:withInstance asawoo-ctx:Wet ;
+	rdf:value "0"^^xsd:double 
+] . 
+
+
+asawoo-ctx:F4 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-ctx:Exposable ;
+	asawoo-ctx:forAdapted asawoo-vocab:SprayWater ;
+	asawoo-ctx:withInstance asawoo-ctx:Flooded ;
+	rdf:value "0"^^xsd:double 
+] . 
+
+
+## Temperature
+
+asawoo-ctx:F5 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F5 asawoo-ctx:applicableTo asawoo-ctx:Exp .
+asawoo-ctx:F5 asawoo-ctx:forDimension asawoo-ctx:Temperature .
+
+asawoo-ctx:F5 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-ctx:Exposable ;
+	asawoo-ctx:forAdapted asawoo-vocab:SprayWater ;
+	asawoo-ctx:withInstance asawoo-ctx:Cold ;
+	rdf:value "0.4"^^xsd:double 
+] . 
+
+asawoo-ctx:F5 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-ctx:Exposable ;
+	asawoo-ctx:forAdapted asawoo-vocab:SprayWater ;
+	asawoo-ctx:withInstance asawoo-ctx:Warm ;
+	rdf:value "0.4"^^xsd:double 
+] . 
+
+asawoo-ctx:F5 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-ctx:Exposable ;
+	asawoo-ctx:forAdapted asawoo-vocab:SprayWater ;
+	asawoo-ctx:withInstance asawoo-ctx:Hot ;
+	rdf:value "0.4"^^xsd:double 
+] . 
+
+# Imp Scoring
+
+## Memory
+
+asawoo-ctx:F6 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F6 asawoo-ctx:applicableTo asawoo-ctx:Imp .
+asawoo-ctx:F6 asawoo-ctx:forDimension asawoo-ctx:Memory .
+
+asawoo-ctx:F6 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:TakePicture ;
+	asawoo-ctx:forAdapted asawoo-vocab:TakeHdPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:HighMemoryPict ;
+	rdf:value "0.3"^^xsd:double 
+] . 
+
+asawoo-ctx:F6 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:TakePicture ;
+	asawoo-ctx:forAdapted asawoo-vocab:TakeHdPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:LowMemoryPict ;
+	rdf:value "0"^^xsd:double 
+] . 
+
+## CPU
+
+asawoo-ctx:F7 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F7 asawoo-ctx:applicableTo asawoo-ctx:Imp .
+asawoo-ctx:F7 asawoo-ctx:forDimension asawoo-ctx:CPU .
+
+asawoo-ctx:F7 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:TakePicture ;
+	asawoo-ctx:forAdapted asawoo-vocab:TakeHdPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:HighCPUPict ;
+	rdf:value "0.3"^^xsd:double 
+] . 
+
+asawoo-ctx:F7 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:TakePicture ;
+	asawoo-ctx:forAdapted asawoo-vocab:TakeHdPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:LowCPUPict ;
+	rdf:value "0"^^xsd:double 
+] . 
+
+## Resolution
+
+asawoo-ctx:F8 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F8 asawoo-ctx:applicableTo asawoo-ctx:Imp .
+asawoo-ctx:F8 asawoo-ctx:forDimension asawoo-ctx:Resolution .
+
+asawoo-ctx:F8 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:TakePicture ;
+	asawoo-ctx:forAdapted asawoo-vocab:TakeHdPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:HD ;
+	rdf:value "0.4"^^xsd:double 
+] . 
+
+asawoo-ctx:F8 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:TakePicture ;
+	asawoo-ctx:forAdapted asawoo-vocab:TakeHdPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:AvgQuality ;
+	rdf:value "0.2"^^xsd:double 
+] . 
+
+asawoo-ctx:F8 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:TakePicture ;
+	asawoo-ctx:forAdapted asawoo-vocab:TakeHdPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:LowQuality ;
+	rdf:value "0"^^xsd:double 
+] . 
+
+# Comp Scoring
+
+## Location
+
+asawoo-ctx:F9 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F9 asawoo-ctx:applicableTo asawoo-ctx:Comp .
+asawoo-ctx:F9 asawoo-ctx:forDimension asawoo-ctx:Location .
+
+asawoo-ctx:F9 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:TakeHdPicture ;
+	asawoo-ctx:forAdapted asawoo-vocab:DetectWateringNeeds ;
+	asawoo-ctx:withInstance asawoo-ctx:CloseToField ;
+	rdf:value "0.3"^^xsd:double 
+] . 
+
+asawoo-ctx:F9 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:TakeHdPicture ;
+	asawoo-ctx:forAdapted asawoo-vocab:DetectWateringNeeds ;
+	asawoo-ctx:withInstance asawoo-ctx:FarFromField ;
+	rdf:value "0"^^xsd:double 
+] . 
+
+
+## Battery
+
+asawoo-ctx:F10 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F10 asawoo-ctx:applicableTo asawoo-ctx:Comp .
+asawoo-ctx:F10 asawoo-ctx:forDimension asawoo-ctx:Battery .
+
+asawoo-ctx:F10 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:TakeHdPicture ;
+	asawoo-ctx:forAdapted asawoo-vocab:DetectWateringNeeds ;
+	asawoo-ctx:withInstance asawoo-ctx:HighBatteryComp ;
+	rdf:value "0.3"^^xsd:double 
+] . 
+
+asawoo-ctx:F10 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:TakeHdPicture ;
+	asawoo-ctx:forAdapted asawoo-vocab:DetectWateringNeeds ;
+	asawoo-ctx:withInstance asawoo-ctx:LowBatteryComp ;
+	rdf:value "0"^^xsd:double 
+] . 
+
+## Memory
+
+asawoo-ctx:F11 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F11 asawoo-ctx:applicableTo asawoo-ctx:Comp .
+asawoo-ctx:F11 asawoo-ctx:forDimension asawoo-ctx:Memory .
+
+asawoo-ctx:F11 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:TakeHdPicture ;
+	asawoo-ctx:forAdapted asawoo-vocab:DetectWateringNeeds ;
+	asawoo-ctx:withInstance asawoo-ctx:HighMemoryComp ;
+	rdf:value "0.4"^^xsd:double 
+] . 
+
+asawoo-ctx:F11 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:TakeHdPicture ;
+	asawoo-ctx:forAdapted asawoo-vocab:DetectWateringNeeds ;
+	asawoo-ctx:withInstance asawoo-ctx:LowMemoryComp ;
+	rdf:value "0"^^xsd:double 
+] . 
+
+# Code Scoring
+
+## Battery
+
+asawoo-ctx:F12 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F12 asawoo-ctx:applicableTo asawoo-ctx:Code .
+asawoo-ctx:F12 asawoo-ctx:forDimension asawoo-ctx:Battery .
+
+asawoo-ctx:F12 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Device ;
+	asawoo-ctx:forAdapted asawoo-vocab:ProcessPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:HighBatteryCode ;
+	rdf:value "0.3"^^xsd:double 
+] . 
+
+asawoo-ctx:F12 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Cloud ;
+	asawoo-ctx:forAdapted asawoo-vocab:ProcessPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:HighBatteryCode ;
+	rdf:value "0.2"^^xsd:double 
+] . 
+
+asawoo-ctx:F12 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Device ;
+	asawoo-ctx:forAdapted asawoo-vocab:ProcessPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:LowBatteryCode ;
+	rdf:value "0"^^xsd:double 
+] . 
+
+asawoo-ctx:F12 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Cloud ;
+	asawoo-ctx:forAdapted asawoo-vocab:ProcessPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:LowBatteryCode ;
+	rdf:value "0.3"^^xsd:double 
+] . 
+
+## Memory
+
+asawoo-ctx:F14 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F14 asawoo-ctx:applicableTo asawoo-ctx:Code .
+asawoo-ctx:F14 asawoo-ctx:forDimension asawoo-ctx:Memory .
+
+asawoo-ctx:F14 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Device ;
+	asawoo-ctx:forAdapted asawoo-vocab:ProcessPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:HighMemoryCode ;
+	rdf:value "0.3"^^xsd:double 
+] . 
+
+asawoo-ctx:F14 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Cloud ;
+	asawoo-ctx:forAdapted asawoo-vocab:ProcessPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:HighMemoryCode ;
+	rdf:value "0.2"^^xsd:double 
+] . 
+
+asawoo-ctx:F14 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Device ;
+	asawoo-ctx:forAdapted asawoo-vocab:ProcessPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:LowMemoryCode ;
+	rdf:value "0"^^xsd:double 
+] . 
+
+asawoo-ctx:F14 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Cloud ;
+	asawoo-ctx:forAdapted asawoo-vocab:ProcessPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:LowMemoryCode ;
+	rdf:value "0.3"^^xsd:double 
+] . 
+
+## CPU
+
+asawoo-ctx:F14 a asawoo-ctx:ScoringFunction .
+asawoo-ctx:F14 asawoo-ctx:applicableTo asawoo-ctx:Code .
+asawoo-ctx:F14 asawoo-ctx:forDimension asawoo-ctx:CPU .
+
+asawoo-ctx:F14 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Device ;
+	asawoo-ctx:forAdapted asawoo-vocab:ProcessPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:HighCPUCode ;
+	rdf:value "0.4"^^xsd:double 
+] . 
+
+asawoo-ctx:F14 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Cloud ;
+	asawoo-ctx:forAdapted asawoo-vocab:ProcessPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:HighCPUCode ;
+	rdf:value "0.2"^^xsd:double 
+] . 
+
+asawoo-ctx:F14 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Device ;
+	asawoo-ctx:forAdapted asawoo-vocab:ProcessPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:LowCPUCode ;
+	rdf:value "0"^^xsd:double 
+] . 
+
+asawoo-ctx:F14 asawoo-ctx:scores [
+	asawoo-ctx:forCandidate asawoo-vocab:Cloud ;
+	asawoo-ctx:forAdapted asawoo-vocab:ProcessPicture ;
+	asawoo-ctx:withInstance asawoo-ctx:LowCPUCode ;
+	rdf:value "0.4"^^xsd:double 
+] . 

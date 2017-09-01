@@ -1,6 +1,7 @@
 var rdfstore = require('rdfstore'),
 	request = require('request'),
 	fs = require('fs'),
+	q = require('q')
 
 	Prefixes = 	"PREFIX asawoo-vocab: <http://liris.cnrs.fr/asawoo/vocab#> \n" +
 				"PREFIX asawoo-ctx: <http://liris.cnrs.fr/asawoo/vocab/context/> \n " +
@@ -16,9 +17,9 @@ var rdfstore = require('rdfstore'),
 	ctxInstance = 'http://liris.cnrs.fr/asawoo/vocab/context/ContextualInstance';
 
 var executeQuery = function(query) {			
-	var deferred = Promise.defer(),
+	var deferred = q.defer(),
 		options = {
-    		url: 'http://localhost:5820/annex/toit/sparql/query',
+    		url: 'http://localhost:5820/toit/query',
     		method: 'POST',
     		form: {
     			'query': Prefixes + query
@@ -47,8 +48,38 @@ var RuleEngine = function(od) {
 	console.log("Ontology directory set to: '" + od + "'.");
 };
 
+var RuleSet = function(bindings) {
+	this.bindings = bindings;
+}
+
+RuleSet.prototype.asHyLARRules = function() {	
+	var adaptationRules = [],
+		scoreBindings = this.bindings;		
+
+	for (var entry in scoreBindings) {					
+		var b = scoreBindings[entry][0],
+	 			instances = b.instances.value.split(' ');		 			 
+	 	
+
+		for (var j = 0; j < instances.length; j++) {
+			instances[j] = `(${instances[j]} ${rdftype} ${ctxInstance})`;
+		}
+
+		var cause = instances.join(' ^ '),			 	
+			consequence = `(__bnode__ ${rdfsub} ${b.adapted.value}) ^ (__bnode__ ${rdfpred} ${b.purposePred.value}) ^ (__bnode__ ${rdfobj} ${b.candidate.value}) ^ (__bnode__ ${rdfval} "${b.candidateScore.value}")`,
+			rule = `${cause} -> ${consequence}`;
+
+		adaptationRules.push(rule);
+	}
+	return adaptationRules;
+}
+
+RuleSet.prototype.size = function() {
+	return Object.keys(this.bindings).length;
+}
+
 RuleEngine.prototype.getDimensions = function() {
-	var deferred = Promise.defer(),
+	var deferred = q.defer(),
 		dimensions = [];
 	executeQuery("SELECT ?dimension { ?dimension a asawoo-ctx:ContextualDimension . }")
 		.then(function(response) {						
@@ -56,20 +87,22 @@ RuleEngine.prototype.getDimensions = function() {
 			for (var i = 0; i < bindings.length; i++) {				
 				dimensions.push(bindings[i].dimension.value);
 			}			
+			console.log(`${dimensions.length} contextual dimensions found.`);
 			deferred.resolve(dimensions);
 		});
 	return deferred.promise;
 };
 
 RuleEngine.prototype.getPurposes = function() {
-	var deferred = Promise.defer(),
+	var deferred = q.defer(),
 		purposes = [];
 	executeQuery("SELECT ?purpose { ?purpose a asawoo-ctx:AdaptationPurpose . }")
-		.then(function(response) {						
-			var bindings = response.results.bindings;
+		.then(function(response) {									
+			var bindings = response.results.bindings;			
 			for (var i = 0; i < bindings.length; i++) {				
 				purposes.push(bindings[i].purpose.value);
 			}
+			console.log(`${purposes.length} adaptation purposes found.`);
 			deferred.resolve(purposes);
 		});
 	return deferred.promise;
@@ -110,7 +143,7 @@ RuleEngine.prototype.generateSPARQLSituationQueries = function(dimensions, purpo
 RuleEngine.prototype.generateSituations = function(dimensions, purposes) {
 	var promises = [],
 		situations = [],
-		deferred = Promise.defer(),
+		deferred = q.defer(),
 		queries = this.generateSPARQLSituationQueries(dimensions, purposes),
 		that = this;
 
@@ -118,7 +151,7 @@ RuleEngine.prototype.generateSituations = function(dimensions, purposes) {
 		promises.push(executeQuery(queries[i]));
 	}
 
-	Promise.all(promises)
+	q.all(promises)
 		.then(function(responses) {
 			for (i = 0; i < responses.length; i++) {
 				var bindings = responses[i].results.bindings;				
@@ -172,27 +205,6 @@ RuleEngine.prototype.calculateScores = function() {
 		} GROUP BY ?adapted ?purposePred ?candidate ?contextualSituation`);
 }
 
-
-
-/*RuleEngine.prototype.generateScoredAdaptationRules = function(scoreBindings) {
-	var adaptationRules = [];
-	for (var i = 0; i < scoreBindings.length; i++) {		
-		var b = scoreBindings[i],
-		 	instances = b.instances.value.split(' ');
-
-		for (var j = 0; j < instances.length; j++) {
-			instances[j] = `(${instances[j]} ${rdftype} ${ctxInstance})`;
-		}
-
-		var cause = instances.join(' ^ '),			 	
-			consequence = `(__bnode__ ${rdfsub} ${b.adapted.value}) ^ (__bnode__ ${rdfpred} ${b.purposePred.value}) ^ (__bnode__ ${rdfobj} ${b.candidate.value}) ^ (__bnode__ ${rdfval} "${b.candidateScore.value}")`,
-			rule = `${cause} -> ${consequence}`;
-
-		adaptationRules.push(rule);
-	}
-	return adaptationRules;
-}*/
-
 RuleEngine.prototype.generateScoredAdaptationRules = function(scoreBindings) {
 	var rules = {};		
 
@@ -206,8 +218,7 @@ RuleEngine.prototype.generateScoredAdaptationRules = function(scoreBindings) {
 		
 	}
 
-console.log(Object.keys(rules).length);
-	return rules;
+	return new RuleSet(rules);
 }
 
 /*RuleEngine.prototype.asHyLARRules = function(rules) {

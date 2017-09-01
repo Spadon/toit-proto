@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Spadon/toit-proto#readme",
   "dependencies": {
+    "q": "^1.5.0",
     "rdfstore": "^0.9.17"
   }
 }

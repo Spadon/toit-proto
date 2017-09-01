@@ -1,0 +1,846 @@
+{
+  "@context": {
+    "asawoo-ctx": "http://liris.cnrs.fr/asawoo/vocab/context/",
+    "asawoo-vocab": "http://liris.cnrs.fr/asawoo/vocab#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "_:ub6bL140C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:SprayWater"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-ctx:Exposable"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:Cold"
+      },
+      "rdf:value": 0.40000000000000002
+    },
+    {
+      "@id": "_:ub6bL196C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TakeHdPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:TakePicture"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:LowCPUPict"
+      },
+      "rdf:value": 0.0
+    },
+    {
+      "@id": "_:ub6bL209C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TakeHdPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:TakePicture"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:HD"
+      },
+      "rdf:value": 0.40000000000000002
+    },
+    {
+      "@id": "_:ub6bL259C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:DetectWateringNeeds"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:TakeHdPicture"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:HighBatteryComp"
+      },
+      "rdf:value": 0.29999999999999999
+    },
+    {
+      "@id": "_:ub6bL279C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:DetectWateringNeeds"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:TakeHdPicture"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:HighMemoryComp"
+      },
+      "rdf:value": 0.40000000000000002
+    },
+    {
+      "@id": "_:ub6bL335C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:ProcessPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Device"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:HighMemoryCode"
+      },
+      "rdf:value": 0.29999999999999999
+    },
+    {
+      "@id": "_:ub6bL28C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TransferPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Bluetooth"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:LowBatteryPrtcl"
+      },
+      "rdf:value": 0.10000000000000001
+    },
+    {
+      "@id": "_:ub6bL84C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:SprayWater"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-ctx:Exposable"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:StrongWind"
+      },
+      "rdf:value": 0.0
+    },
+    {
+      "@id": "_:ub6bL322C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:ProcessPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Cloud"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:LowBatteryCode"
+      },
+      "rdf:value": 0.29999999999999999
+    },
+    {
+      "@id": "_:ub6bL189C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TakeHdPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:TakePicture"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:HighCPUPict"
+      },
+      "rdf:value": 0.29999999999999999
+    },
+    {
+      "@id": "asawoo-ctx:F12",
+      "@type": "asawoo-ctx:ScoringFunction",
+      "asawoo-ctx:applicableTo": {
+        "@id": "asawoo-ctx:Code"
+      },
+      "asawoo-ctx:forDimension": {
+        "@id": "asawoo-ctx:Battery"
+      },
+      "asawoo-ctx:scores": [
+        {
+          "@id": "_:ub6bL308C34"
+        },
+        {
+          "@id": "_:ub6bL315C34"
+        },
+        {
+          "@id": "_:ub6bL301C34"
+        },
+        {
+          "@id": "_:ub6bL322C34"
+        }
+      ]
+    },
+    {
+      "@id": "asawoo-ctx:F11",
+      "@type": "asawoo-ctx:ScoringFunction",
+      "asawoo-ctx:applicableTo": {
+        "@id": "asawoo-ctx:Comp"
+      },
+      "asawoo-ctx:forDimension": {
+        "@id": "asawoo-ctx:Memory"
+      },
+      "asawoo-ctx:scores": [
+        {
+          "@id": "_:ub6bL286C34"
+        },
+        {
+          "@id": "_:ub6bL279C34"
+        }
+      ]
+    },
+    {
+      "@id": "asawoo-ctx:F10",
+      "@type": "asawoo-ctx:ScoringFunction",
+      "asawoo-ctx:applicableTo": {
+        "@id": "asawoo-ctx:Comp"
+      },
+      "asawoo-ctx:forDimension": {
+        "@id": "asawoo-ctx:Battery"
+      },
+      "asawoo-ctx:scores": [
+        {
+          "@id": "_:ub6bL259C34"
+        },
+        {
+          "@id": "_:ub6bL266C34"
+        }
+      ]
+    },
+    {
+      "@id": "asawoo-ctx:F14",
+      "@type": "asawoo-ctx:ScoringFunction",
+      "asawoo-ctx:applicableTo": {
+        "@id": "asawoo-ctx:Code"
+      },
+      "asawoo-ctx:forDimension": [
+        {
+          "@id": "asawoo-ctx:Memory"
+        },
+        {
+          "@id": "asawoo-ctx:CPU"
+        }
+      ],
+      "asawoo-ctx:scores": [
+        {
+          "@id": "_:ub6bL356C34"
+        },
+        {
+          "@id": "_:ub6bL335C34"
+        },
+        {
+          "@id": "_:ub6bL342C34"
+        },
+        {
+          "@id": "_:ub6bL390C34"
+        },
+        {
+          "@id": "_:ub6bL349C34"
+        },
+        {
+          "@id": "_:ub6bL383C34"
+        },
+        {
+          "@id": "_:ub6bL369C34"
+        },
+        {
+          "@id": "_:ub6bL376C34"
+        }
+      ]
+    },
+    {
+      "@id": "_:ub6bL238C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:DetectWateringNeeds"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:TakeHdPicture"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:CloseToField"
+      },
+      "rdf:value": 0.29999999999999999
+    },
+    {
+      "@id": "_:ub6bL390C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:ProcessPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Cloud"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:LowCPUCode"
+      },
+      "rdf:value": 0.40000000000000002
+    },
+    {
+      "@id": "_:ub6bL376C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:ProcessPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Cloud"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:HighCPUCode"
+      },
+      "rdf:value": 0.20000000000000001
+    },
+    {
+      "@id": "_:ub6bL356C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:ProcessPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Cloud"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:LowMemoryCode"
+      },
+      "rdf:value": 0.29999999999999999
+    },
+    {
+      "@id": "_:ub6bL154C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:SprayWater"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-ctx:Exposable"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:Hot"
+      },
+      "rdf:value": 0.40000000000000002
+    },
+    {
+      "@id": "asawoo-ctx:F9",
+      "@type": "asawoo-ctx:ScoringFunction",
+      "asawoo-ctx:applicableTo": {
+        "@id": "asawoo-ctx:Comp"
+      },
+      "asawoo-ctx:forDimension": {
+        "@id": "asawoo-ctx:Location"
+      },
+      "asawoo-ctx:scores": [
+        {
+          "@id": "_:ub6bL238C33"
+        },
+        {
+          "@id": "_:ub6bL245C33"
+        }
+      ]
+    },
+    {
+      "@id": "_:ub6bL383C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:ProcessPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Device"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:LowCPUCode"
+      },
+      "rdf:value": 0.0
+    },
+    {
+      "@id": "_:ub6bL342C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:ProcessPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Cloud"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:HighMemoryCode"
+      },
+      "rdf:value": 0.20000000000000001
+    },
+    {
+      "@id": "_:ub6bL349C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:ProcessPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Device"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:LowMemoryCode"
+      },
+      "rdf:value": 0.0
+    },
+    {
+      "@id": "_:ub6bL245C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:DetectWateringNeeds"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:TakeHdPicture"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:FarFromField"
+      },
+      "rdf:value": 0.0
+    },
+    {
+      "@id": "_:ub6bL55C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TransferPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Wifi"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:Close"
+      },
+      "rdf:value": 0.5
+    },
+    {
+      "@id": "_:ub6bL369C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:ProcessPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Device"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:HighCPUCode"
+      },
+      "rdf:value": 0.40000000000000002
+    },
+    {
+      "@id": "_:ub6bL266C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:DetectWateringNeeds"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:TakeHdPicture"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:LowBatteryComp"
+      },
+      "rdf:value": 0.0
+    },
+    {
+      "@id": "_:ub6bL111C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:SprayWater"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-ctx:Exposable"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:Dry"
+      },
+      "rdf:value": 0.29999999999999999
+    },
+    {
+      "@id": "_:ub6bL69C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TransferPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Wifi"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:Far"
+      },
+      "rdf:value": 0.29999999999999999
+    },
+    {
+      "@id": "_:ub6bL126C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:SprayWater"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-ctx:Exposable"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:Flooded"
+      },
+      "rdf:value": 0.0
+    },
+    {
+      "@id": "_:ub6bL62C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TransferPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Bluetooth"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:Far"
+      },
+      "rdf:value": 0.0
+    },
+    {
+      "@id": "_:ub6bL176C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TakeHdPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:TakePicture"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:LowMemoryPict"
+      },
+      "rdf:value": 0.0
+    },
+    {
+      "@id": "_:ub6bL21C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TransferPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Wifi"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:HighBatteryPrtcl"
+      },
+      "rdf:value": 0.5
+    },
+    {
+      "@id": "_:ub6bL48C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TransferPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Bluetooth"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:Close"
+      },
+      "rdf:value": 0.5
+    },
+    {
+      "@id": "_:ub6bL286C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:DetectWateringNeeds"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:TakeHdPicture"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:LowMemoryComp"
+      },
+      "rdf:value": 0.0
+    },
+    {
+      "@id": "_:ub6bL301C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:ProcessPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Device"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:HighBatteryCode"
+      },
+      "rdf:value": 0.29999999999999999
+    },
+    {
+      "@id": "_:ub6bL308C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:ProcessPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Cloud"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:HighBatteryCode"
+      },
+      "rdf:value": 0.20000000000000001
+    },
+    {
+      "@id": "_:ub6bL223C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TakeHdPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:TakePicture"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:LowQuality"
+      },
+      "rdf:value": 0.0
+    },
+    {
+      "@id": "_:ub6bL169C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TakeHdPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:TakePicture"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:HighMemoryPict"
+      },
+      "rdf:value": 0.29999999999999999
+    },
+    {
+      "@id": "_:ub6bL118C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:SprayWater"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-ctx:Exposable"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:Wet"
+      },
+      "rdf:value": 0.0
+    },
+    {
+      "@id": "_:ub6bL315C34",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:ProcessPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Device"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:LowBatteryCode"
+      },
+      "rdf:value": 0.0
+    },
+    {
+      "@id": "_:ub6bL35C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TransferPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Wifi"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:LowBatteryPrtcl"
+      },
+      "rdf:value": 0.29999999999999999
+    },
+    {
+      "@id": "_:ub6bL147C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:SprayWater"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-ctx:Exposable"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:Warm"
+      },
+      "rdf:value": 0.40000000000000002
+    },
+    {
+      "@id": "_:ub6bL14C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TransferPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:Bluetooth"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:HighBatteryPrtcl"
+      },
+      "rdf:value": 0.5
+    },
+    {
+      "@id": "_:ub6bL98C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:SprayWater"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-ctx:Exposable"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:NoWind"
+      },
+      "rdf:value": 0.29999999999999999
+    },
+    {
+      "@id": "asawoo-ctx:F8",
+      "@type": "asawoo-ctx:ScoringFunction",
+      "asawoo-ctx:applicableTo": {
+        "@id": "asawoo-ctx:Imp"
+      },
+      "asawoo-ctx:forDimension": {
+        "@id": "asawoo-ctx:Resolution"
+      },
+      "asawoo-ctx:scores": [
+        {
+          "@id": "_:ub6bL209C33"
+        },
+        {
+          "@id": "_:ub6bL223C33"
+        },
+        {
+          "@id": "_:ub6bL216C33"
+        }
+      ]
+    },
+    {
+      "@id": "_:ub6bL91C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:SprayWater"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-ctx:Exposable"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:Breeze"
+      },
+      "rdf:value": 0.29999999999999999
+    },
+    {
+      "@id": "asawoo-ctx:F3",
+      "@type": "asawoo-ctx:ScoringFunction",
+      "asawoo-ctx:applicableTo": {
+        "@id": "asawoo-ctx:Exp"
+      },
+      "asawoo-ctx:forDimension": {
+        "@id": "asawoo-ctx:Wind"
+      },
+      "asawoo-ctx:scores": [
+        {
+          "@id": "_:ub6bL98C33"
+        },
+        {
+          "@id": "_:ub6bL84C33"
+        },
+        {
+          "@id": "_:ub6bL91C33"
+        }
+      ]
+    },
+    {
+      "@id": "asawoo-ctx:F2",
+      "@type": "asawoo-ctx:ScoringFunction",
+      "asawoo-ctx:applicableTo": {
+        "@id": "asawoo-ctx:Prtcl"
+      },
+      "asawoo-ctx:forDimension": {
+        "@id": "asawoo-ctx:Location"
+      },
+      "asawoo-ctx:scores": [
+        {
+          "@id": "_:ub6bL69C33"
+        },
+        {
+          "@id": "_:ub6bL62C33"
+        },
+        {
+          "@id": "_:ub6bL48C33"
+        },
+        {
+          "@id": "_:ub6bL55C33"
+        }
+      ]
+    },
+    {
+      "@id": "asawoo-ctx:F1",
+      "@type": "asawoo-ctx:ScoringFunction",
+      "asawoo-ctx:applicableTo": {
+        "@id": "asawoo-ctx:Prtcl"
+      },
+      "asawoo-ctx:forDimension": {
+        "@id": "asawoo-ctx:Battery"
+      },
+      "asawoo-ctx:scores": [
+        {
+          "@id": "_:ub6bL35C33"
+        },
+        {
+          "@id": "_:ub6bL28C33"
+        },
+        {
+          "@id": "_:ub6bL21C33"
+        },
+        {
+          "@id": "_:ub6bL14C33"
+        }
+      ]
+    },
+    {
+      "@id": "_:ub6bL216C33",
+      "asawoo-ctx:forAdapted": {
+        "@id": "asawoo-vocab:TakeHdPicture"
+      },
+      "asawoo-ctx:forCandidate": {
+        "@id": "asawoo-vocab:TakePicture"
+      },
+      "asawoo-ctx:withInstance": {
+        "@id": "asawoo-ctx:AvgQuality"
+      },
+      "rdf:value": 0.20000000000000001
+    },
+    {
+      "@id": "asawoo-ctx:F7",
+      "@type": "asawoo-ctx:ScoringFunction",
+      "asawoo-ctx:applicableTo": {
+        "@id": "asawoo-ctx:Imp"
+      },
+      "asawoo-ctx:forDimension": {
+        "@id": "asawoo-ctx:CPU"
+      },
+      "asawoo-ctx:scores": [
+        {
+          "@id": "_:ub6bL196C33"
+        },
+        {
+          "@id": "_:ub6bL189C33"
+        }
+      ]
+    },
+    {
+      "@id": "asawoo-ctx:F6",
+      "@type": "asawoo-ctx:ScoringFunction",
+      "asawoo-ctx:applicableTo": {
+        "@id": "asawoo-ctx:Imp"
+      },
+      "asawoo-ctx:forDimension": {
+        "@id": "asawoo-ctx:Memory"
+      },
+      "asawoo-ctx:scores": [
+        {
+          "@id": "_:ub6bL176C33"
+        },
+        {
+          "@id": "_:ub6bL169C33"
+        }
+      ]
+    },
+    {
+      "@id": "asawoo-ctx:F5",
+      "@type": "asawoo-ctx:ScoringFunction",
+      "asawoo-ctx:applicableTo": {
+        "@id": "asawoo-ctx:Exp"
+      },
+      "asawoo-ctx:forDimension": {
+        "@id": "asawoo-ctx:Temperature"
+      },
+      "asawoo-ctx:scores": [
+        {
+          "@id": "_:ub6bL140C33"
+        },
+        {
+          "@id": "_:ub6bL154C33"
+        },
+        {
+          "@id": "_:ub6bL147C33"
+        }
+      ]
+    },
+    {
+      "@id": "asawoo-ctx:F4",
+      "@type": "asawoo-ctx:ScoringFunction",
+      "asawoo-ctx:applicableTo": {
+        "@id": "asawoo-ctx:Exp"
+      },
+      "asawoo-ctx:forDimension": {
+        "@id": "asawoo-ctx:Dryness"
+      },
+      "asawoo-ctx:scores": [
+        {
+          "@id": "_:ub6bL118C33"
+        },
+        {
+          "@id": "_:ub6bL126C33"
+        },
+        {
+          "@id": "_:ub6bL111C33"
+        }
+      ]
+    }
+  ]
+}
+

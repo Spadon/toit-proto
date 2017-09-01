@@ -1,0 +1,71 @@
+{
+  "@context": {
+    "asawoo-vocab": "http://liris.cnrs.fr/asawoo/vocab#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "asawoo-vocab:TakeHdPicture",
+      "@type": "asawoo-vocab:Functionality"
+    },
+    {
+      "@id": "asawoo-vocab:TransferPicture",
+      "@type": "asawoo-vocab:Functionality"
+    },
+    {
+      "@id": "asawoo-vocab:SprayWater",
+      "@type": "asawoo-vocab:Functionality"
+    },
+    {
+      "@id": "asawoo-vocab:ManageWatering",
+      "@type": "asawoo-vocab:Functionality"
+    },
+    {
+      "@id": "asawoo-vocab:Functionality",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "asawoo-vocab:TakePicture",
+      "@type": "asawoo-vocab:Capability"
+    },
+    {
+      "@id": "asawoo-vocab:Capability",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "asawoo-vocab:isImplementedBy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "owl:Class"
+      },
+      "rdfs:range": {
+        "@id": "owl:Class"
+      }
+    },
+    {
+      "@id": "asawoo-vocab:DetectWateringNeeds",
+      "@type": "asawoo-vocab:Functionality"
+    },
+    {
+      "@id": "asawoo-vocab:isComposedOf",
+      "@type": [
+        "owl:ObjectProperty",
+        "owl:TransitiveProperty"
+      ],
+      "rdfs:domain": {
+        "@id": "owl:Class"
+      },
+      "rdfs:range": {
+        "@id": "owl:Class"
+      }
+    },
+    {
+      "@id": "asawoo-vocab:ProcessPicture",
+      "@type": "asawoo-vocab:Functionality"
+    }
+  ]
+}
+

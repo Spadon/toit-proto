@@ -1,0 +1,128 @@
+{
+  "@context": {
+    "asawoo-ctx": "http://liris.cnrs.fr/asawoo/vocab/context/",
+    "asawoo-vocab": "http://liris.cnrs.fr/asawoo/vocab#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "asawoo-ctx:Imp",
+      "@type": "asawoo-ctx:AdaptationPurpose",
+      "asawoo-ctx:purposePredicate": {
+        "@id": "asawoo-ctx:suitableCapabilityToImplement"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:suitableCapabilityToImplement",
+      "asawoo-vocab:requires": {
+        "@id": "asawoo-vocab:isImplementedBy"
+      },
+      "rdfs:domain": {
+        "@id": "asawoo-vocab:Functionality"
+      },
+      "rdfs:range": {
+        "@id": "asawoo-vocab:Capability"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Exposable",
+      "@type": "asawoo-vocab:Exposability"
+    },
+    {
+      "@id": "asawoo-vocab:Cloud",
+      "@type": "asawoo-vocab:CodeLocation"
+    },
+    {
+      "@id": "asawoo-ctx:suitableFunctionalityToCompose",
+      "asawoo-vocab:requires": {
+        "@id": "asawoo-vocab:isComposedOf"
+      },
+      "rdfs:domain": {
+        "@id": "asawoo-vocab:Functionality"
+      },
+      "rdfs:range": {
+        "@id": "asawoo-vocab:Functionality"
+      }
+    },
+    {
+      "@id": "asawoo-vocab:Device",
+      "@type": "asawoo-vocab:CodeLocation"
+    },
+    {
+      "@id": "asawoo-ctx:preferredCodeLocation",
+      "asawoo-vocab:requires": {
+        "@id": "owl:Nothing"
+      },
+      "rdfs:domain": {
+        "@id": "asawoo-vocab:Functionality"
+      },
+      "rdfs:range": {
+        "@id": "asawoo-vocab:CodeLocation"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Exp",
+      "@type": "asawoo-ctx:AdaptationPurpose",
+      "asawoo-ctx:purposePredicate": {
+        "@id": "asawoo-ctx:hasExposability"
+      }
+    },
+    {
+      "@id": "asawoo-vocab:Bluetooth",
+      "@type": "asawoo-vocab:CommunicationProtocol"
+    },
+    {
+      "@id": "asawoo-ctx:Code",
+      "@type": "asawoo-ctx:AdaptationPurpose",
+      "asawoo-ctx:purposePredicate": {
+        "@id": "asawoo-ctx:preferredCodeLocation"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Comp",
+      "@type": "asawoo-ctx:AdaptationPurpose",
+      "asawoo-ctx:purposePredicate": {
+        "@id": "asawoo-ctx:suitableFunctionalityToCompose"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:Prtcl",
+      "@type": "asawoo-ctx:AdaptationPurpose",
+      "asawoo-ctx:purposePredicate": {
+        "@id": "asawoo-ctx:preferredProtocol"
+      }
+    },
+    {
+      "@id": "asawoo-vocab:Wifi",
+      "@type": "asawoo-vocab:CommunicationProtocol"
+    },
+    {
+      "@id": "asawoo-ctx:hasExposability",
+      "asawoo-vocab:requires": {
+        "@id": "owl:Nothing"
+      },
+      "rdfs:domain": {
+        "@id": "asawoo-vocab:Functionality"
+      },
+      "rdfs:range": {
+        "@id": "asawoo-vocab:Exposability"
+      }
+    },
+    {
+      "@id": "asawoo-ctx:preferredProtocol",
+      "asawoo-vocab:requires": {
+        "@id": "owl:Nothing"
+      },
+      "rdfs:domain": {
+        "@id": "asawoo-vocab:Functionality"
+      },
+      "rdfs:range": {
+        "@id": "asawoo-vocab:CommunicationProtocol"
+      }
+    }
+  ]
+}
+
