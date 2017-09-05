@@ -1,82 +1,33 @@
-var rdfstore = require('rdfstore'),
-	request = require('request'),
+var request = require('request'),
 	fs = require('fs'),
-	q = require('q')
+	q = require('q');
 
-	Prefixes = 	"PREFIX asawoo-vocab: <http://liris.cnrs.fr/asawoo/vocab#> \n" +
-				"PREFIX asawoo-ctx: <http://liris.cnrs.fr/asawoo/vocab/context/> \n " +
-				"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n" +
-				"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n" +
-				"PREFIX owl: <http://www.w3.org/2002/07/owl#> \n",
+var RuleSet = require('./RuleSet'),
+	//executeQuery = require('./HttpQueryEngine').executeQuery;
+	RDFStoreEngine = require('./RDFStoreEngine'),
+	executeQuery = RDFStoreEngine.executeQuery;
 
-	rdftype = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type',
-	rdfsub = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#subject',
-	rdfpred = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate',
-	rdfobj = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#object',
-	rdfval = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#value',
-	ctxInstance = 'http://liris.cnrs.fr/asawoo/vocab/context/ContextualInstance';
+Prefixes = 	`PREFIX asawoo-vocab: <http://liris.cnrs.fr/asawoo/vocab#>
+			PREFIX asawoo-ctx: <http://liris.cnrs.fr/asawoo/vocab/context/> 
+			PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+			PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+			PREFIX owl: <http://www.w3.org/2002/07/owl#> `;
 
-var executeQuery = function(query) {			
-	var deferred = q.defer(),
-		options = {
-    		url: 'http://localhost:5820/toit/query',
-    		method: 'POST',
-    		form: {
-    			'query': Prefixes + query
-    		},
-    		headers: {
-    			'Accept': 'application/sparql-results+json'
-    		}    
-		};		
-
-	if (arguments.length > 1) {
-		options.headers['Accept'] = arguments[1];
-	}
-
-	request(options, function(err, res, body) {		
-		try {
-			body = JSON.parse(body)			
-		} catch(e) {}
-		deferred.resolve(body);
-	});
-
-	return deferred.promise;
-}
+rdftype = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type',
+rdfsub = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#subject',
+rdfpred = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate',
+rdfobj = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#object',
+rdfval = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#value',
+ctxInstance = 'http://liris.cnrs.fr/asawoo/vocab/context/ContextualInstance';
 
 var RuleEngine = function(od) {
+	if (od === undefined) {
+		console.log(`Ontology directory not set. Using default test directory ${RDFStoreEngine.test_dir}`);
+        od = RDFStoreEngine.test_dir;
+	}
 	this.ontologyDirectory = od;
 	console.log("Ontology directory set to: '" + od + "'.");
 };
-
-var RuleSet = function(bindings) {
-	this.bindings = bindings;
-}
-
-RuleSet.prototype.asHyLARRules = function() {	
-	var adaptationRules = [],
-		scoreBindings = this.bindings;		
-
-	for (var entry in scoreBindings) {					
-		var b = scoreBindings[entry][0],
-	 			instances = b.instances.value.split(' ');		 			 
-	 	
-
-		for (var j = 0; j < instances.length; j++) {
-			instances[j] = `(${instances[j]} ${rdftype} ${ctxInstance})`;
-		}
-
-		var cause = instances.join(' ^ '),			 	
-			consequence = `(__bnode__ ${rdfsub} ${b.adapted.value}) ^ (__bnode__ ${rdfpred} ${b.purposePred.value}) ^ (__bnode__ ${rdfobj} ${b.candidate.value}) ^ (__bnode__ ${rdfval} "${b.candidateScore.value}")`,
-			rule = `${cause} -> ${consequence}`;
-
-		adaptationRules.push(rule);
-	}
-	return adaptationRules;
-}
-
-RuleSet.prototype.size = function() {
-	return Object.keys(this.bindings).length;
-}
 
 RuleEngine.prototype.getDimensions = function() {
 	var deferred = q.defer(),
@@ -119,10 +70,10 @@ RuleEngine.prototype.generateSPARQLSituationQuery = function(dimensions, purpose
 
 		instances.push(i);
 
-		bodyQuery += " OPTIONAL { " +
-			i + " a asawoo-ctx:ContextualInstance . \n" +
-			i + " asawoo-ctx:instanceForPurpose <" + purpose + "> . \n" +		
-			i + " asawoo-ctx:instanceFromDimension <" + dimensions[k] + "> . \n\n";
+		bodyQuery += ` OPTIONAL { 
+			${i} a asawoo-ctx:ContextualInstance . 
+			${i}  asawoo-ctx:instanceForPurpose <" + purpose + "> . 		
+			${i}  asawoo-ctx:instanceFromDimension <" + dimensions[k] + "> . `;
 
 		bodyQuery += " } ";
 
@@ -157,13 +108,13 @@ RuleEngine.prototype.generateSituations = function(dimensions, purposes) {
 				var bindings = responses[i].results.bindings;				
 				for (j = 0; j < bindings.length; j++) {
 					var conjunction = '',
-						currentSituation = '<http://liris.cnrs.fr/asawoo/vocab/context/S-'+i+'-'+j+'> ';
-						situations += currentSituation + ' a <http://liris.cnrs.fr/asawoo/vocab/context/ContextualSituation> . \n'
+						currentSituation = `<http://liris.cnrs.fr/asawoo/vocab/context/S-${i}-${j}> `;
+						situations += `${currentSituation} a <http://liris.cnrs.fr/asawoo/vocab/context/ContextualSituation> . `;
 					
 					for (var key in bindings[j]) {						
-						situations += 	currentSituation +
-										'<http://liris.cnrs.fr/asawoo/vocab/context/containsInstance> ' +
-										'<' + bindings[j][key].value + '> . \n';
+						situations += 	`${currentSituation}
+										<http://liris.cnrs.fr/asawoo/vocab/context/containsInstance>
+										<${bindings[j][key].value}> . `;
 					}
 
 				}								

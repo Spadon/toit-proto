@@ -1,22 +1,29 @@
 var RuleEngine = require('./RuleEngine'),
+	RDFStoreEngine = require('./RDFStoreEngine'),
 	ontologyDirectory,
 	fs = require('fs');
 
-for (var i = 0; i < process.argv.length; i++) {
-	var argv = process.argv;
-	if (argv[i] === "-od") {
-		ontologyDirectory = argv[i+1];
-	} else {
+var ms = new Date().getTime();
 
-	}
+for (var i = 0; i < process.argv.length; i++) {
+    var argv = process.argv;
+    if (argv[i] === "-od") {
+        ontologyDirectory = argv[i+1];
+    } else {
+
+    }
 }
 
-console.log(`Generation started`);
+async function init() {
+    await RDFStoreEngine.createStore();
+}
 
-var ms = new Date().getTime();
+init();
 
 var engine = new RuleEngine(ontologyDirectory),
 	purposes = [], dimensions, situations, possibilities;
+
+console.log(`Generation started`);
 
 engine.getPurposes()
 	.then(function(p) {
